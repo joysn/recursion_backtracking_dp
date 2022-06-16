@@ -14,11 +14,15 @@
 
 def ifSubsetSum(idx, csum):
     global nums
+
+    if csum < 0:
+        return False
     if csum == 0:
         return True
     if idx >= n:
         return False
     
+    # print("Sudipto",idx,csum)
     if memo[idx][csum] != None:
         return memo[idx][csum]
     if nums[idx] <= csum:
@@ -40,10 +44,9 @@ def printSubsetSum(idx, csum):
     if idx >= n:
         return
     
-    if nums[idx] <= csum:
-        if ifSubsetSum(idx+1,csum-nums[idx]):
-            print(nums[idx],end=" ")
-            printSubsetSum(idx+1,csum-nums[idx])
+    if ifSubsetSum(idx+1,csum-nums[idx]):
+        print(nums[idx],end=" ")
+        printSubsetSum(idx+1,csum-nums[idx])
     if ifSubsetSum(idx+1,csum):
         printSubsetSum(idx+1,csum)
 
