@@ -48,9 +48,11 @@ def maxSum2(idx):
         return memo[idx]
     # Partition
     ans = -1
-    for i in range(1,k+1):
-        if idx+i <= n:
-            ans = max(ans, i*max(arr[idx:idx+i]) + maxSum2(idx+i))
+    # for i in range(1,k+1):
+        # if idx+i <= n:
+        #     ans = max(ans, i*max(arr[idx:idx+i]) + maxSum2(idx+i))
+    for i in range(idx, min(n,idx+k)):
+        ans = max(ans,(i-idx+1)*max(arr[idx:i+1]) + maxSum2(i+1))
         
     memo[idx] = ans
     return ans
