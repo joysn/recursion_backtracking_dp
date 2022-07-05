@@ -60,6 +60,21 @@ def maxConsecutiveSubsequence(op,idx):
         fop = copy.deepcopy(op)
     return fop
 
+def maxConsecutiveSubsequence2(prev,next):
+    if next == n:
+        return 0
+
+    if (prev,next) in memo:
+        return memo[prev,next]
+    ans = 0
+    if nums[prev]+1 == nums[next]:
+        ans = max(ans,1 + maxConsecutiveSubsequence2(next,next+1))
+    else:
+        ans = max(ans, maxConsecutiveSubsequence2(prev,next+1))
+
+    memo[prev,next] = ans
+    return ans
+
 
 # Using 2 D Array, Bottom Up
 def maxConsecutiveSubsequenceTab():
@@ -125,17 +140,23 @@ def maxConsecutiveSubsequenceTab2():
     return op,max_cnt
 
 if __name__ == "__main__":
+
     nums = [3, 3, 4, 7, 5, 6, 8]    
     n = len(nums)
     fop = []
     print("Top Down",maxConsecutiveSubsequence([],0),len(fop))
+    memo = {}
+    print("Top Down2",1+maxConsecutiveSubsequence2(0,1))
     print("Bottom Up1",maxConsecutiveSubsequenceTab())
     print("Bottom Up2",maxConsecutiveSubsequenceTab2())
+    
 
     nums = [1, 3, 5, 2, 4, 6]
     n = len(nums)
     fop = []
     print("Top Down",maxConsecutiveSubsequence([],0),len(fop))
+    memo = {}
+    print("Top Down2",1+maxConsecutiveSubsequence2(0,1))
     print("Bottom Up1",maxConsecutiveSubsequenceTab())
     print("Bottom Up2",maxConsecutiveSubsequenceTab2())
 
@@ -143,6 +164,8 @@ if __name__ == "__main__":
     n = len(nums)
     fop = []
     print("Top Down",maxConsecutiveSubsequence([],0),len(fop))
+    memo = {}
+    print("Top Down2",1+maxConsecutiveSubsequence2(0,1))
     print("Bottom Up1",maxConsecutiveSubsequenceTab())
     print("Bottom Up2",maxConsecutiveSubsequenceTab2())
 
@@ -150,6 +173,8 @@ if __name__ == "__main__":
     n = len(nums)
     fop = []
     print("Top Down",maxConsecutiveSubsequence([],0),len(fop))
+    memo = {}
+    print("Top Down2",1+maxConsecutiveSubsequence2(0,1))
     print("Bottom Up1",maxConsecutiveSubsequenceTab())
     print("Bottom Up2",maxConsecutiveSubsequenceTab2())
 
