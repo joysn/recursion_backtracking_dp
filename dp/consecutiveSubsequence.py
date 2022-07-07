@@ -139,6 +139,22 @@ def maxConsecutiveSubsequenceTab2():
             op.append(i)
     return op,max_cnt
 
+
+def maxConsecutiveSubsequenceTab3():
+    dp = {}
+    maxcnt = ([],0)
+    for i in range(n):
+        if nums[i]-1 in dp:
+            dp[nums[i]] = (dp[nums[i]-1][0]+[i],dp[nums[i]-1][1] + 1)
+        else:
+            dp[nums[i]] = ([i],1)
+        if maxcnt[1] < dp[nums[i]][1]:
+            maxcnt = dp[nums[i]]
+
+    return maxcnt
+
+    
+
 if __name__ == "__main__":
 
     nums = [3, 3, 4, 7, 5, 6, 8]    
@@ -149,6 +165,7 @@ if __name__ == "__main__":
     print("Top Down2",1+maxConsecutiveSubsequence2(0,1))
     print("Bottom Up1",maxConsecutiveSubsequenceTab())
     print("Bottom Up2",maxConsecutiveSubsequenceTab2())
+    print("Bottom Up3",maxConsecutiveSubsequenceTab3())
     
 
     nums = [1, 3, 5, 2, 4, 6]
@@ -159,6 +176,7 @@ if __name__ == "__main__":
     print("Top Down2",1+maxConsecutiveSubsequence2(0,1))
     print("Bottom Up1",maxConsecutiveSubsequenceTab())
     print("Bottom Up2",maxConsecutiveSubsequenceTab2())
+    print("Bottom Up3",maxConsecutiveSubsequenceTab3())
 
     nums = [10, 9, 8, 7]
     n = len(nums)
@@ -168,6 +186,7 @@ if __name__ == "__main__":
     print("Top Down2",1+maxConsecutiveSubsequence2(0,1))
     print("Bottom Up1",maxConsecutiveSubsequenceTab())
     print("Bottom Up2",maxConsecutiveSubsequenceTab2())
+    print("Bottom Up3",maxConsecutiveSubsequenceTab3())
 
     nums = [6, 7, 8, 3, 4, 5, 9, 10, 11]
     n = len(nums)
@@ -177,4 +196,5 @@ if __name__ == "__main__":
     print("Top Down2",1+maxConsecutiveSubsequence2(0,1))
     print("Bottom Up1",maxConsecutiveSubsequenceTab())
     print("Bottom Up2",maxConsecutiveSubsequenceTab2())
+    print("Bottom Up3",maxConsecutiveSubsequenceTab3())
 
