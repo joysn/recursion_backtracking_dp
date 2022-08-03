@@ -29,6 +29,9 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+from typing import Optional
+
+
 class Solution:
     gr = {}
     maxVal = -1*(sys.maxsize-1)
