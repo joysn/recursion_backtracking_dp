@@ -1,8 +1,8 @@
-https://leetcode.com/problems/maximize-palindrome-length-from-subsequences/
-1771. Maximize Palindrome Length From Subsequences
+# https://leetcode.com/problems/maximize-palindrome-length-from-subsequences/
+# 1771. Maximize Palindrome Length From Subsequences
 
-Runtime: 9411 ms, faster than 7.32% of Python3 online submissions for Maximize Palindrome Length From Subsequences.
-Memory Usage: 713 MB, less than 7.32% of Python3 online submissions for Maximize Palindrome Length From Subsequences.
+# Runtime: 9411 ms, faster than 7.32% of Python3 online submissions for Maximize Palindrome Length From Subsequences.
+# Memory Usage: 713 MB, less than 7.32% of Python3 online submissions for Maximize Palindrome Length From Subsequences.
 
 
 class Solution:
